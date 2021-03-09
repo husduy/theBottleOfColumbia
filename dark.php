@@ -14,12 +14,10 @@ if ($link == false){
 }
 
 
-$sql = 'SELECT * FROM dost';
+$sql = 'SELECT * FROM jab';
 $result = mysqli_query($link, $sql);
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -34,7 +32,7 @@ $result = mysqli_query($link, $sql);
 		body {
 			font-family: Montserrat, Arial;
 			overflow-x: hidden;
-			background-color: #FBFEF9;
+			background-color: #1A181B;
 		}
 		.header {
 			background-image: url(img/pokr.jpg);
@@ -71,16 +69,17 @@ $result = mysqli_query($link, $sql);
 		}
 		.card {
 			border: 0;
-			background-color: #D6F9D3;
+			background-color: #FCE38B;			
 			max-width: 540px;
 			margin-right: 1rem;
 			transition: 0.2s;
 			bottom: -10px;
 		}
 		.card:hover {
-			background-color: #bfffba;
+			background-color: #ffeca7;
 			bottom:0px;
 		}
+	</style>
 	</style>
 </head>
 <body>
@@ -94,7 +93,7 @@ $result = mysqli_query($link, $sql);
 			    	<div class="collapse navbar-collapse ml-5" id="navbarNav">
 				      	<ul class="navbar-nav">
 					        <li class="nav-item">
-					          	<a class="nav-link active" aria-current="page" href="index.php">Главная</a>
+					          	<a class="nav-link active" aria-current="page" href="dark.php">Главная</a>
 					        </li>
 					        <li class="nav-item">
 					          	<a class="nav-link" href="form.php">Подать заявку</a>
@@ -112,7 +111,7 @@ $result = mysqli_query($link, $sql);
 		</div>
 
 		<div class="theme ps-5">
-			<a class="btn-logo" href="dark.php">
+			<a class="btn-logo" href="index.php">
 				<img src="img/logo.png">
 			</a>
 		</div>
@@ -121,9 +120,6 @@ $result = mysqli_query($link, $sql);
 			<h1 class="align-self-center">проект: бутылка коламбии</h1>
 		</div>
 	</div>
-
-
-	
 
 	<div class="container mt-5">
 		<div class="row">

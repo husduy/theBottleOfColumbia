@@ -14,18 +14,12 @@ if ($link == false){
 }
 
 
-$sql = 'SELECT * FROM dost';
-$result = mysqli_query($link, $sql);
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Бутылка Коламбии</title>
+	<title>Подать заявку</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -43,7 +37,7 @@ $result = mysqli_query($link, $sql);
 			font-size: 20px
 		}
 		.title {
-			height: 360px;
+			height: 539px;
 			font-family: Poppins, Arial;
 			color:#FBFEF9;
 			text-transform: uppercase;
@@ -52,34 +46,28 @@ $result = mysqli_query($link, $sql);
 		.title h1 {
 			margin: 0;
 		}
-		.btn-logo {
-			border: none;	
-			padding: 0;
-			background: transparent;
+		.light {
+			background-color: #D6F9D3;
 		}
-		.btn-logo img:hover {
-			cursor: pointer;
+		.btn-light {
+			background-color: #e9ecef;
+			border: none;
+		}
+		.dark {
+			background-color: #FCE38B;
+		}
+		.btn-dark {
+			background-color: #e9ecef;
+			border: none;
 		}
 		.footer {
-			margin-top: 20px;
+			margin-top: 80px;
 			height: 80px;
 			background-color: #232323;
 			color: #FBFEF9;
 		}
 		.footer .col-6, .footer .col-5 {
 			margin-top: 30px;
-		}
-		.card {
-			border: 0;
-			background-color: #D6F9D3;
-			max-width: 540px;
-			margin-right: 1rem;
-			transition: 0.2s;
-			bottom: -10px;
-		}
-		.card:hover {
-			background-color: #bfffba;
-			bottom:0px;
 		}
 	</style>
 </head>
@@ -94,10 +82,10 @@ $result = mysqli_query($link, $sql);
 			    	<div class="collapse navbar-collapse ml-5" id="navbarNav">
 				      	<ul class="navbar-nav">
 					        <li class="nav-item">
-					          	<a class="nav-link active" aria-current="page" href="index.php">Главная</a>
+					          	<a class="nav-link" href="index.php">Главная</a>
 					        </li>
 					        <li class="nav-item">
-					          	<a class="nav-link" href="form.php">Подать заявку</a>
+					          	<a class="nav-link active" aria-current="page" href="form.php">Подать заявку</a>
 					        </li>
 					        <li class="nav-item">
 					          	<a class="nav-link" href="#">Топ месяца</a>
@@ -111,38 +99,50 @@ $result = mysqli_query($link, $sql);
 			</nav>
 		</div>
 
-		<div class="theme ps-5">
-			<a class="btn-logo" href="dark.php">
-				<img src="img/logo.png">
-			</a>
-		</div>
-
 		<div class="title d-flex justify-content-center">
 			<h1 class="align-self-center">проект: бутылка коламбии</h1>
 		</div>
 	</div>
 
 
-	
+	<div class="container mt-5 light p-5" id="dost">
+		<h1>Подать заявку для достопримичательности</h1>
+		<h3 class="mb-5">Подав заявку вы можете (крч микро описание) </h3>
+		<form action="thanksDost.php" method="post" enctype="multipart/form-data">
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Название места</label>
+				<input class="form-control" type="text" aria-label="default input example" name="name">
+			</div>
+			<div class="mb-3">
+			  	<label for="exampleFormControlTextarea1" class="form-label">Описание места</label>
+			  	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="decription"></textarea>
+			</div>
+			<div class="mb-3">
+			    <label for="formFile" class="form-label">Выберите фото места</label>
+			    <input class="form-control" type="file" id="formFile" name="picture">
+			</div>
+			<button name="sendDost" type="submit" class="btn btn-light">Подать заявку</button>
+		</form>
+	</div>
 
-	<div class="container mt-5">
-		<div class="row">
-			<?php while ($row = mysqli_fetch_array($result)): ?>
-				<div class="card mb-3 col-6 p-0">
-				  	<div class="row g-0">
-				    	<div class="col-md-4">
-				      		<img src="<?= $row['img']; ?>" width="100%">
-				    	</div>
-			   			<div class="col-md-8">
-				      		<div class="card-body">
-				        		<h5 class="card-title"><?= $row['name']; ?></h5>
-			        			<p class="card-text"><?= $row['decription']; ?></p>
-				      		</div>
-				    	</div>
-				  	</div>
-				</div>
-			<?php endwhile; ?>
-		</div>
+	<div class="container mt-5 dark p-5" id="jab">
+		<h1>Подать заявку на жалобу</h1>
+		<h3 class="mb-5">Подав заявку вы можете (крч микро описание) </h3>
+		<form action="thanksJab.php" method="post" enctype="multipart/form-data">
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Название места</label>
+				<input class="form-control" type="text" aria-label="default input example"name="nameJab">
+			</div>
+			<div class="mb-3">
+			  	<label for="exampleFormControlTextarea1" class="form-label">Описание места</label>
+			  	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="decriptionJab"></textarea>
+			</div>
+			<div class="mb-3">
+			    <label for="formFile" class="form-label">Выберите фото места</label>
+			    <input class="form-control" type="file" id="formFile" name="pictureJab">
+			</div>
+			<button type="submit" class="btn btn-light" name="sendJab">Подать заявку</button>
+		</form>
 	</div>
 
 	<div class="footer">
@@ -155,7 +155,6 @@ $result = mysqli_query($link, $sql);
 			</div>
 		</div>
 	</div>
-
 
 
 
